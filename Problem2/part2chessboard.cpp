@@ -1,5 +1,5 @@
 //
-//  part3keyboard.cpp
+//  part2chessboard.cpp
 //  soc-assignment-1
 //
 //  Created by Shabnam Sahay on 28/03/20.
