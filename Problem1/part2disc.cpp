@@ -76,7 +76,7 @@ int main () {
     glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     
     // glfw window creation
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Keyboard", NULL, NULL);
+    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "Disc", NULL, NULL);
     
     if (window == NULL)
     {
@@ -204,37 +204,25 @@ int main () {
     glGenBuffers(1,&VBO);
     glGenBuffers(1,&EBO);
     
-    //bind the Vertex Array Object first, then bind and set vertex buffer(s)
+    
     glBindVertexArray(VAO);
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    
-    //configure vertex attributes / copy defined vertex data into buffer's memory
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
     
-    //copy our index array in a element buffer for OpenGL to use
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
     
-    //telling OpenGL how to interpret vertex data wrt vertex attributes
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3*sizeof(float), (void*)0);
-        
-    //enabling vertex attributes, giving vertex attribute location as argument
     glEnableVertexAttribArray(0);
-    
     
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
-    
-    
-   
     
     
     //uncomment below call to draw in wireframe polygons.
     //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     //change GL_LINE to GL_FILL to get default mode again
 
-    
-    
     
     // render loop
     
@@ -247,8 +235,6 @@ int main () {
         
         glClearColor(0.75f, 0.75f, 0.75f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
-        
-        
         
         //activating shader program
         glUseProgram(shaderProgram);
